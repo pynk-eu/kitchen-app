@@ -1,0 +1,10 @@
+.menu-list{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.menu-item__dishName {
+  font-weight: 300;
+}
