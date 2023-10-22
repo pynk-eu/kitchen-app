@@ -1,0 +1,16 @@
+.nav-bar{
+  color: white;
+  font-size: 14px;
+  font-family: kyiv-type-serif;
+  font-weight: 700;
+  word-wrap: break-word;
+
+  
+ 
+}
+.nav-bar__link{
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+
+}
