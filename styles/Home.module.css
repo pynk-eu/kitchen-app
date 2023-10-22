@@ -1,28 +1,26 @@
+.home-page{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% ,-50%) ;
+  text-align: center;
+}
+
 .home-page--txt{
-color: white;
-font-size: 15px;
-font-family: Kyiv-type-title;
-font-weight: 700;
-word-wrap: break-word;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50% ,-50%) ;
+  color: white;
+  font-size: 15px;
+  font-family: Kyiv-type-title;
+  font-weight: 700;
+  word-wrap: break-word;
  }
 
-
  .home-page--btn{
-  position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-55%, -50%);
-    text-align: center;
     margin: 20px;
-    padding: 8px;
-  
+    padding: 8px;  
     color: black;
     font-size: 10px;
     font-family:  kyiv-type-serif;
     font-weight: 700;
-    word-wrap: break-word}
+    word-wrap: break-word
+  }
  
