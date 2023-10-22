@@ -1,21 +1,24 @@
+import styles from '@/styles/Login.module.css'
+import Link from 'next/link'
+
 export default function Login(){
   return(
-    <div className="singup-page">
-      <div className="signup-page--text">
+    <div className={styles["signup-page"]}>
+      <div className={styles["signup-page--text"]}>
         <h3>Register with us for a seamless experience</h3>
       </div>
-      <div className="signup-page--form">
-       <label for="fname">Full Name</label>
-       <input type="text" id="fname" name="fname" value=" "/>
-       <label for="email">Email</label>
-       <input type="text" id="email" name="email" value=" "/>
-       <label for="number">Contact Number</label>
-       <input type="tel" id="number" name="number" value=" "/>
-      <label for="address">Address</label>
-       <input type="text" id="address" name="address" value=" "/>
+      <div className={styles["signup-page--form"]}>
+       
+       <input type="text"  name="fname" placeholder="Full Name" className={styles["singup-page--input"]}/>
+      
+       <input type="text"  name="email" placeholder="Email"className={styles["singup-page--input"]}/>
+     
+       <input type="tel" name="number" placeholder="Contact Number"className={styles["singup-page--input"]}/>
+     
+       <input type="text"  name="address" placeholder="Address"className={styles["singup-page--input"]}/>
       </div>
-      <div  className="singup-page--users">
-        <h3>Already have account?</h3>
+      <div  className={styles["singup-page--users"]}>
+        <p>Already have account?<Link href={'/login'}>Login here</Link></p>
       </div>
 
     </div>

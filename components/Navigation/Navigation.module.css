@@ -4,13 +4,15 @@
   font-family: kyiv-type-serif;
   font-weight: 700;
   word-wrap: break-word;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+ }
 
-  
- 
-}
 .nav-bar__link{
   display: flex;
-  gap: 20px;
-  justify-content: flex-end;
+  gap: 10px;
+
 
 }

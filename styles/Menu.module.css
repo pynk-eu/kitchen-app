@@ -1,5 +1,10 @@
 .menu-item{
-  
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: black;
+  width: 20%;
+  height: 20%;
+ 
 }
 
 .menu-item--text{
@@ -16,18 +21,23 @@ color: white;
  font-size: 12px;
  font-family: kyiv-type-title;
  font-weight: 700;
- word-wrap: break-word
+ word-wrap: break-word;
+ margin-left: 20px;
+}
+
+.menu-item--image{
+margin-left: 20px;
+margin-top: 20px;
 }
 
 .menu-item--button{
-  color: black;
+  color: white;
   font-size: 10px;
   font-family:  kyiv-type-serif;
   font-weight: 700;
   word-wrap: break-word;
-  background-color: white;
-  width: 5%;
-  height: 5%;
+
+ 
   padding: 8px;
   text-align: center;
 }
