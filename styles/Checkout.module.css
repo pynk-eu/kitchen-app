@@ -1,0 +1,23 @@
+.checkout-page--txt{
+  text-align: center;
+}
+
+
+.checkout-summaries{
+  padding-left: 30px;
+  text-align: center;
+}
+
+
+
+.checkout-summaries__items{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  color: black;
+  margin: 10px;
+  width: 450px;
+
+}
