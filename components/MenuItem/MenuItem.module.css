@@ -1,7 +1,63 @@
-.menu-item__image{
-  border-radius: 10px;
+.menu-items{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;  
+  flex-wrap: nowrap;
 }
 
-.menu-item__dishName{
-  text-decoration: solid;
+.menu-item{
+  padding: 10px;
+  background-color: black;
+  width: 270px;
+  height: 270px;
+  border: 2px solid white;   
 }
+
+.menu-item--text{
+color: white;
+font-size: 14px;
+font-family:kyiv-type-title;
+font-weight: 700;
+word-wrap: break-word;
+text-align: center;
+padding-top: 30px;
+}
+
+.menu-item__details{
+ color: white;
+ font-size: 12px;
+ font-family: kyiv-type-title;
+ font-weight: 700;
+ word-wrap: break-word;
+ margin-left: 20px;
+ text-align: center;
+ }
+
+.menu-item__details--price{
+  padding-top: 10px;
+ }
+  
+.menu-item--img{
+padding: 8px;
+text-align: center;
+}
+
+.menu-item--button{
+  text-align: center ;
+  margin: 10px;
+}
+
+.btn-wrapper{
+  color: black;
+  font-size: 10px;
+  font-family:  kyiv-type-serif;
+  font-weight: 700;
+  word-wrap: break-word;
+  padding: 4px;
+  background-color: white;
+  width: 100px;
+  border: none;
+   
+}
+

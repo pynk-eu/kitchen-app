@@ -1,0 +1,15 @@
+.signup-page--form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.singup-page--input{
+  font-family:kyiv-type-title;
+  display: block;
+  width: 50%;
+  height: 50%;
+  padding: 8px;
+ }

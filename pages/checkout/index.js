@@ -22,7 +22,7 @@ export  default function Checkout(){
           <p className={styles['checkout-summaries__items--total']}>€ 19.00</p>
         </div>
       </div>
-      {/* <div className={styles['addtional-info']}>
+      <div className={styles['addtional-info']}>
         <input className={styles['addtional-instructions--txt']} placeholder='Instructions' />
       <div className={styles['gross-amount']}>
          <p>Gross</p>
@@ -34,7 +34,7 @@ export  default function Checkout(){
         <button onClick className={['menu-button']}>Back to menu</button>
         <button  onClick className={['order-button']}>Confirm Order</button>
       </div>
-       */}
+       
     </div>
   )
 } 
