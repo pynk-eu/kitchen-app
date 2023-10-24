@@ -11,14 +11,16 @@
   font-size: 20px;
   font-family: Kyiv-type-title;
   word-wrap: break-word;
+  padding-bottom: 30px;
  }
 
  .home-page--btn{
-    margin: 20px;
     padding: 8px;  
     color: black;
-    font-size: 10px;
+    background-color: white;
+    font-size: 15px;
     font-family:  kyiv-type-serif;
     word-wrap: break-word
+    
   }
  

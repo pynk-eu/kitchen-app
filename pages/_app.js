@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function App({ Component, pageProps }) {
   const[cart, setCart] = useState([])
   return  <>
-    <Navigation/>
-    <Component {...pageProps} cart={cart}/>
+    <Navigation cart={cart} />
+    <Component {...pageProps} cart={cart} handleCart= {setCart}/>
    </>
   }

@@ -3,7 +3,7 @@ import styles from '@/styles/Menu.module.css'
  import useSWR from "swr"
 
  const fetcher = (...args) => fetch(...args).then(res => res.json())
-export default function Menu({cart}) {
+export default function Menu({cart, handleCart}) {
     const { data, error, isLoading } = useSWR('/api/menus', fetcher)
  
  
@@ -12,14 +12,15 @@ export default function Menu({cart}) {
 
 
   function handelAddToCart(menu){
-  cart.push(menu)
-
+    handleCart([...cart, menu]);
+  // cart.push(menu)
+  // console.log(cart)
  }
 
      return (
       <div className={styles['menu-page']}>
          <h3 className={styles['menu-item--text']}>On menu today...</h3>
-         <div className={styles['menu-items']}> 
+         <div className={styles['menu-items']} > 
          {data.map((menu) =>
          {return (
           <div className={styles['menu-item']}>

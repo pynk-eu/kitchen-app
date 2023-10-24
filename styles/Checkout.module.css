@@ -1,12 +1,20 @@
+.checkout-page{
+  padding: 20px;
+}
+
 .checkout-page--txt{
   text-align: center;
+   margin: 20px;
 }
 
 .checkout-summaries{
   padding-left: 30px;
   text-align: center;
   padding: 40px;
-}
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 640px;
+  height: 360px;
+  }
 
 .checkout-summaries__items{
   display: flex;
@@ -22,3 +30,25 @@
   word-wrap: break-word;
   padding: 10px;
 }
+
+.addtional-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+ 
+}
+
+.addtional-info--txt{
+  background-color: rgba(255, 255, 255, 0.7);
+  text-align: left;
+  width: 220px;
+  height: 160px;
+  padding: 10px;
+  color: black;
+  font-size: 14px;
+  font-family: kyiv-type-title;
+  word-wrap: break-word;
+  border: none;
+  
+ }
