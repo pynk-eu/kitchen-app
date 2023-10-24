@@ -22,7 +22,6 @@
 color: white;
 font-size: 14px;
 font-family:kyiv-type-title;
-font-weight: 700;
 word-wrap: break-word;
 text-align: center;
 padding-top: 30px;
@@ -33,7 +32,6 @@ padding-bottom: 30px;
  color: white;
  font-size: 12px;
  font-family: kyiv-type-title;
- font-weight: 700;
  word-wrap: break-word;
  margin-left: 20px;
  text-align: center;
@@ -56,8 +54,7 @@ text-align: center;
 .btn-wrapper{
   color: black;
   font-size: 10px;
-  font-family:  kyiv-type-serif;
-  font-weight: 700;
+  font-family:  kyiv-type-serif;  
   word-wrap: break-word;
   padding: 4px;
   background-color: white;

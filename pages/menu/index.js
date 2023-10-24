@@ -3,17 +3,17 @@ import styles from '@/styles/Menu.module.css'
  import useSWR from "swr"
 
  const fetcher = (...args) => fetch(...args).then(res => res.json())
-export default function Menu() {
+export default function Menu({cart}) {
     const { data, error, isLoading } = useSWR('/api/menus', fetcher)
  
  
     if (error) return <div>failed to load</div>
     if (isLoading) return <div>loading...</div>
 
-  const cart = []
+
   function handelAddToCart(menu){
   cart.push(menu)
-  console.log(cart)
+
  }
 
      return (

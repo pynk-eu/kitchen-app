@@ -1,16 +1,12 @@
-
 .checkout-page--txt{
   text-align: center;
 }
-
 
 .checkout-summaries{
   padding-left: 30px;
   text-align: center;
   padding: 40px;
 }
-
-
 
 .checkout-summaries__items{
   display: flex;
@@ -20,6 +16,9 @@
   background-color: white;
   color: black;
   margin: 10px;
-  width: 450px;
-
+  width: 550px;  
+  font-size: 16px;
+  font-family:kyiv-type-title;
+  word-wrap: break-word;
+  padding: 10px;
 }
