@@ -1,17 +1,13 @@
 import mongoose from "mongoose";
-import Menu from "./Menu";
 
 const { Schema } = mongoose;
 
 const orderSchema = new Schema({
-  //populate menu here
-  items: { type: [Schema.Types.ObjectId], ref: "Menu" },
-
-  // total: { type: Number, required: true },
-  //populate user here
-  orderPlacedBy: { type: Schema.Types.ObjectId, ref: "User" },
+  items: [{ itemId: String, qty: Number }],
+  orderPlacedBy: { type: String },
   createdOn: { type: Date, default: Date.now },
-  // status: { type: String, default: 'inProgress' }
+  status: { type: String, default: 'inProgress' },
+  total: { type: Number, required: true }
 });
 
 const Order = mongoose.models.Order || mongoose.model("Order", orderSchema);

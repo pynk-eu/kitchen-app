@@ -17,8 +17,18 @@ export default function Navigation({ cart }) {
           <span>{cart?.length}</span>
         </p>
         </Link>
-        <p>Welcome {session?.user.name.split(' ')[0]}</p>
-        <button className={styles['sign-in--btn']} onClick={() => signIn()}>Log in</button>
+
+        {
+          session ?
+            <>
+              <p>Welcome {session?.user.name.split(' ')[0]}</p>
+              <button onClick={() => signOut()}>Log out</button>
+            </>
+            :
+            <button className={styles['signin-btn']} onClick={() => signIn()}>Log in</button>
+        }
+
+
       </div>
     </div>
 
