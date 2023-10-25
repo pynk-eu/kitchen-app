@@ -28,8 +28,8 @@ export default function Menu({cart, handleCart}) {
             <Image src={menu.image} height='150' width='150' alt={menu.name}/>
          </div>     
          <div className={styles['menu-item__details']}>
-             <p className={styles['menu-item__details--name']}>{menu.name}</p>
-             <p className={styles['menu-item__details--price']}>€{menu.price}</p>
+            <p className={styles['menu-item__details--name']}>{menu.name}</p>
+            <p className={styles['menu-item__details--price']}>€{menu.price}</p>
          </div>
          <div className={styles['menu-item--button']}>
            <button onClick={() => handelAddToCart(menu)} className={styles['btn-wrapper']}>Add</button>
