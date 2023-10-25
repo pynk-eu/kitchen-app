@@ -1,12 +1,10 @@
 import Link from "next/link";
 import styles from './Navigation.module.css'
 import { IconShoppingCart } from "@tabler/icons-react";
-import { useSession } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Navigation({ cart }) {
-  // console.log("cart is", cart);
   const { data: session } = useSession()
-  console.log(session)
   return (
     <div className={styles['nav-bar']}>
       <div className={styles['nav-bar--logo']}>
@@ -20,7 +18,7 @@ export default function Navigation({ cart }) {
         </p>
         </Link>
         <p>Welcome {session?.user.name.split(' ')[0]}</p>
-        <Link href={"./login"}>Login</Link>
+        <button className={styles['sign-in--btn']} onClick={() => signIn()}>Log in</button>
       </div>
     </div>
 
