@@ -7,6 +7,8 @@ import Menu from "@/db/models/Menu";
 export default async function handler(request, response) {
   await dbConnect();
 
+
+
   if (request.method === "POST") {
     try {
       console.log(request.body)

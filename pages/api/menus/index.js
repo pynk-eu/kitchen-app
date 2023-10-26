@@ -6,8 +6,21 @@ export default async function handler(request, response) {
 
     if (request.method === "GET") {
         const menus = await Menu.find();
-        return response.status(200).json(menus);
+        response.status(200).json(menus);
     } else {
-        return response.status(404).json({ message: "Menu not found" });
+        response.status(404).json({ message: "Menu not found" });
+    }
+
+    if (request.method === "POST") {
+        try {
+            const { menuData } = request.body;
+            console.log("DATA", menuData);
+            await Menu.create(menuData);
+            response.status(201).json({ status: "Menu created" });
+        } catch (err) {
+            console.log(err);
+            response.status(404).json({ error: err.message });
+        }
     }
 }
+

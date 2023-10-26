@@ -1,7 +1,8 @@
 import styles from '@/styles/Checkout.module.css'
 import Image from 'next/image'
 
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
+import Link from 'next/link';
 
 export default function Checkout({ cart }) {
   const { data: session } = useSession();
@@ -16,9 +17,7 @@ export default function Checkout({ cart }) {
       },
       body: JSON.stringify({ items: selectedItems }),
     });
-
   }
-
   return (
     <div className={styles['checkout-page']}>
       <h3 className={styles['checkout-page--txt']}>Checkout</h3>
@@ -30,23 +29,28 @@ export default function Checkout({ cart }) {
               <p className={styles['checkout-summaries__items--name']}>{item.name}</p>
               <p className={styles['checkout-summaries__items--qty']}>Qty: {item.qty}</p>
               <p className={styles['checkout-summaries__items--price']}>€{item.price}</p>
-              <p className={styles['checkout-summaries__items--total']}>€ 19.00</p>
+              <p className={styles['checkout-summaries__items--total']}>€{item.qty * item.price}</p>
             </div>
           )
         })}
-
         <div className={styles['addtional-info']}>
-          <input className={styles['addtional-info--txt']} placeholder='Instructions' />
-
-          <div className={styles['gross-amount']}>
-            <p>Gross</p>
-            <p>Tax @ 5%</p>
-            <p>Total</p>
+          <textarea rows='4' cols='50' className={styles['addtional-info--txt']} placeholder='Instructions' />
+          <div className={styles['gross-amt']}>
+            <input className={styles['gross-amt__value']} type='text' name='gross' placeholder='Gross' />
+            <input className={styles['gross-amt__tax']} type='text' name='tax' placeholder='Tax @ 5%' />
+            <input className={styles['gross-amt__total']} type='text' name='total-amount' placeholder='Total' />
           </div>
         </div>
-        <div className={styles['menu-order--btn']}>
-          <button className={['menu-button']}>Back to menu</button>
-          <button onClick={handleConfirmOrder} className={['order-button']}>Confirm Order</button>
+        <div className={styles['menu-order']}>
+          <Link href='./menu' className={['menu-order__button']}>Back to menu</Link>
+
+          {
+            session ?
+              <button onClick={handleConfirmOrder} className={['menu-order__order-btn']}>Confirm Order</button>
+              :
+              <button className={styles['signin-btn']} onClick={() => signIn()}>Log in</button>
+          }
+
         </div>
       </div>
     </div>

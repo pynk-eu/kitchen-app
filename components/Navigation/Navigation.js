@@ -1,10 +1,14 @@
 import Link from "next/link";
 import styles from './Navigation.module.css'
 import { IconShoppingCart } from "@tabler/icons-react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn, } from "next-auth/react";
 
+
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
 export default function Navigation({ cart }) {
   const { data: session } = useSession()
+
   return (
     <div className={styles['nav-bar']}>
       <div className={styles['nav-bar--logo']}>
