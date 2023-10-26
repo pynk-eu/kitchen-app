@@ -1,6 +1,5 @@
 import styles from '@/styles/Checkout.module.css'
 import Image from 'next/image'
-
 import { useSession, signIn } from "next-auth/react";
 import Link from 'next/link';
 
@@ -42,11 +41,11 @@ export default function Checkout({ cart }) {
           </div>
         </div>
         <div className={styles['menu-order']}>
-          <Link href='./menu' className={['menu-order__button']}>Back to menu</Link>
+          <Link href='./menu' className={styles['menu-order__button']}>Back to menu</Link>
 
           {
             session ?
-              <button onClick={handleConfirmOrder} className={['menu-order__order-btn']}>Confirm Order</button>
+              <button onClick={handleConfirmOrder} className={styles['menu-order__order-btn']}>Confirm Order</button>
               :
               <button className={styles['signin-btn']} onClick={() => signIn()}>Log in</button>
           }

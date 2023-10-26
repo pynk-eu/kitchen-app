@@ -1,4 +1,4 @@
-import styles from "./LoginForm.module.css"
+import styles from "./NewMenu.module.css"
 
 export default function NewMenu() {
 

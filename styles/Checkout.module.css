@@ -63,20 +63,28 @@
 
 .gross-amt__value{
   margin: 10px;
-  }
+}
 
 .gross-amt__tax{
    margin: 10px;
-  }
+}
 
 .menu-order__button{
-  padding: 8px;  
+  padding: 2px;  
   color: black;
   background-color: white;
-  font-size: 15px;
-  font-family:  kyiv-type-serif;
+  font-size: 12px;
+  font-family: kyiv-type-serif;
   word-wrap: break-word;
-  border: solid;
+  }
+
+.menu-order__order-btn{
+  padding: 2px;  
+  color: black;
+  background-color: white;
+  font-size: 12px;
+  font-family: kyiv-type-serif;
+  word-wrap: break-word;
 
 }
 
