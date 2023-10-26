@@ -13,7 +13,6 @@ export default async function handler(request, response) {
     try {
       console.log(request.body)
       const session = await getServerSession(request, response, authOptions)
-      console.log(session)
       if (session) {
         const { items } = request.body;
         const userId = session.user.userId;
@@ -21,7 +20,6 @@ export default async function handler(request, response) {
 
         for (let i = 0; i < items.length; i++) {
           const item = await Menu.findById(items[i].itemId)
-          console.log(item)
           total += (item.price * items[i].qty);
         }
 

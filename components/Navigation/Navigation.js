@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from './Navigation.module.css'
 import { IconShoppingCart } from "@tabler/icons-react";
-import { useSession, signIn, } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 
 

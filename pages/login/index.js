@@ -1,4 +1,4 @@
-import LoginForm from '@/components/LoginForm/LoginForm'
+// import LoginForm from '@/components/LoginForm/LoginForm'
 import styles from '@/styles/Login.module.css'
 import Link from 'next/link'
 
@@ -8,7 +8,7 @@ export default function Login() {
       <div className={styles["signup-page--text"]}>
         <h3>Register with us for a seamless experience</h3>
       </div>
-      <LoginForm />
+      {/* <LoginForm /> */}
       <div className={styles["singup-page--users"]}>
         <p>Already have account?<Link href={'/login'}>Login here</Link></p>
       </div>

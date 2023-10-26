@@ -4,6 +4,7 @@
   height: calc(100vh - 60px);
   overflow: auto;
   height: calc(100vh - 95px);
+  
 }
 
 .checkout-page--txt{
@@ -16,10 +17,12 @@
   text-align: center;
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.2);
-  width: 640px;
-  height: 640px; 
- 
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% ,-50%) ;
+  text-align: center;
+}
 
 .checkout-summaries__items{
   display: flex;
@@ -33,7 +36,7 @@
   font-family:kyiv-type-title;
   word-wrap: break-word;
   padding: 10px;
-  margin: 10px;
+  margin: 10px; 
 }
 
 .addtional-info{
