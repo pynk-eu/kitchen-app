@@ -1,0 +1,18 @@
+.signup-page--text{
+text-align: center;
+color: white;
+font-size: 16px;
+font-family:kyiv-type-title;
+word-wrap: break-word;
+padding-top: 40px;
+padding-bottom: 40px;
+}
+
+.singup-page--users{
+color: white;
+font-size: 16px;
+font-family:kyiv-type-title;
+word-wrap: break-word;
+text-align: center;
+margin: 40px;
+ }

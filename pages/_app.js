@@ -1,20 +1,15 @@
+import Navigation from '@/components/Navigation/Navigation'
 import '@/styles/globals.css'
-import { SWRConfig } from "swr";
+import { useState } from 'react'
+import useLocalStorageState from 'use-local-storage-state'
+import { SessionProvider } from "next-auth/react"
 
-
-export default function App({ Component, pageProps }) {
-  return  <SWRConfig
-  value={{
-    fetcher: async (...args) => {
-      const response = await fetch(...args);
-      if (!response.ok) {
-        throw new Error(`Request with ${JSON.stringify(args)} failed.`);
-      }
-      return await response.json();
-    },
-  }}
->
-  
-    <Component {...pageProps} />
-
-</SWRConfig>}
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
+  const [cart, setCart] = useLocalStorageState('cart', { defaultValue: [] })
+  return <>
+    <SessionProvider session={session}>
+      <Navigation cart={cart} />
+      <Component {...pageProps} cart={cart} handleCart={setCart} />
+    </SessionProvider>
+  </>
+}

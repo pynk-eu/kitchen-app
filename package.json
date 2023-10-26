@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^2.0.3",
     "@next/eslint-plugin-next": "^13.5.4",
     "@tabler/icons-react": "^2.39.0",
     "@testing-library/dom": "^9.3.3",
@@ -27,10 +28,13 @@
     "jest-environment-jsdom": "^29.7.0",
     "mongoose": "^7.6.2",
     "next": "13.5.4",
+    "next-auth": "^4.24.3",
     "prettier": "^3.0.3",
     "react": "^18",
     "react-dom": "^18",
-    "swr": "^2.2.4"
+    "react-icons": "^4.11.0",
+    "swr": "^2.2.4",
+    "use-local-storage-state": "^19.1.0"
   },
   "devDependencies": {
     "babel-jest": "^29.7.0",

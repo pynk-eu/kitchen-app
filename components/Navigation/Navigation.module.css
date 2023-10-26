@@ -1,0 +1,25 @@
+.nav-bar{
+  color: white;
+  font-size: 14px;
+  font-family: kyiv-type-serif;
+  word-wrap: break-word;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+ }
+
+.nav-bar__link{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.signin-btn {
+  background: transparent;
+  border: 0;
+  color: white;
+  font-size: 14px;
+  font-family: kyiv-type-serif;
+  word-wrap: break-word;
+}
