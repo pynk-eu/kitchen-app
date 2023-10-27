@@ -18,13 +18,13 @@ export default function NewMenu() {
   }
 
   return (
-    <form onClick={handleAddNewMenuItem} className={styles["signup-page--form"]}>
+    <form onSubmit={handleAddNewMenuItem} className={styles["signup-page--form"]}>
 
       <input type="text" name="name" placeholder="Name" className={styles["singup-page--input"]} />
 
-      <input type="image" name="image" placeholder="Image" className={styles["singup-page--input"]} />
+      <input type="url" name="image" placeholder="Image" className={styles["singup-page--input"]} />
 
-      <input type="number" name="number" placeholder="Price" className={styles["singup-page--input"]} />
+      <input type="number" name="price" placeholder="Price" className={styles["singup-page--input"]} />
       {/* 
       <input type="text" name="address" placeholder="Address" className={styles["singup-page--input"]} /> */}
       <button>Send</button>

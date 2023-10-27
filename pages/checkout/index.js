@@ -7,6 +7,7 @@ export default function Checkout({ cart }) {
   const { data: session } = useSession();
   const userId = session?.user?.userId
   const selectedItems = cart.map((item) => ({ itemId: item._id, qty: item.qty }))
+  let totalCartValue = cart.reduce((initialValue, item) => initialValue + (item.qty * item.price), 0)
 
   async function handleConfirmOrder() {
     const response = await fetch("/api/orders", {
@@ -20,7 +21,7 @@ export default function Checkout({ cart }) {
   return (
     <div className={styles['checkout-page']}>
       <h3 className={styles['checkout-page--txt']}>Checkout</h3>
-      <div className={styles['checkout-summaries']}>
+      {cart.length > 0 ? <div className={styles['checkout-summaries']}>
         {cart.map((item) => {
           return (
             <div className={styles['checkout-summaries__items']} key={item._id}>
@@ -35,9 +36,9 @@ export default function Checkout({ cart }) {
         <div className={styles['addtional-info']}>
           <textarea rows='4' cols='50' className={styles['addtional-info--txt']} placeholder='Instructions' />
           <div className={styles['gross-amt']}>
-            <input className={styles['gross-amt__value']} type='text' name='gross' placeholder='Gross' />
-            <input className={styles['gross-amt__tax']} type='text' name='tax' placeholder='Tax @ 5%' />
-            <input className={styles['gross-amt__total']} type='text' name='total-amount' placeholder='Total' />
+            <p className={styles['gross-amt__value']} >Gross:{totalCartValue} </p>
+            <p className={styles['gross-amt__tax']}>Tax@5%: {totalCartValue * 5 / 100} </p>
+            <p className={styles['gross-amt__total']}>Total: </p>
           </div>
         </div>
         <div className={styles['menu-order']}>
@@ -49,9 +50,9 @@ export default function Checkout({ cart }) {
               :
               <button className={styles['signin-btn']} onClick={() => signIn()}>Log in</button>
           }
-
         </div>
-      </div>
+      </div> : <p>Please Add cart Item</p>}
+
     </div>
   )
 } 
