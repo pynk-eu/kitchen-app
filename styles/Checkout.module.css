@@ -17,10 +17,8 @@
   text-align: center;
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.2);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50% ,-50%) ;
+  width: 85%;
+  margin: auto;
   text-align: center;
 }
 
@@ -31,7 +29,6 @@
   align-items: center;
   background-color: rgba(255, 255, 255, 0.7);
   color: black; 
-  width: 550px;  
   font-size: 16px;
   font-family:kyiv-type-title;
   word-wrap: break-word;
@@ -76,6 +73,7 @@
   font-size: 12px;
   font-family: kyiv-type-serif;
   word-wrap: break-word;
+  margin-right: 20px;
   }
 
 .menu-order__order-btn{
@@ -85,6 +83,13 @@
   font-size: 12px;
   font-family: kyiv-type-serif;
   word-wrap: break-word;
-
 }
 
+.gross-amt__value{
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black; 
+  font-size: 12px;
+  font-family:kyiv-type-title;
+  word-wrap: break-word;
+
+}

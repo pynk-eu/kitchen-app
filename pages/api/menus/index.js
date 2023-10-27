@@ -13,12 +13,11 @@ export default async function handler(request, response) {
 
     if (request.method === "POST") {
         try {
-            const { menuData } = request.body;
-            await Menu.create(menuData);
-            response.status(201).json({ status: "Menu created" });
+            await Menu.create(request.body);
+            response.status(201).send({ status: "Menu created" });
         } catch (err) {
             console.log(err);
-            response.status(404).json({ error: err.message });
+            response.status(500).send({ error: err.message });
         }
     }
 }

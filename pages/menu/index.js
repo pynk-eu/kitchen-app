@@ -14,6 +14,7 @@ export default function Menu({ cart, handleCart }) {
       d.qty = 0;
       return d;
     })
+
     setMenuItems(list || [])
   }, [data])
   if (error) return <div>failed to load</div>
