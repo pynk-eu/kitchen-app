@@ -51,7 +51,7 @@ export default function Checkout({ cart }) {
               <button className={styles['signin-btn']} onClick={() => signIn()}>Log in</button>
           }
         </div>
-      </div> : <p>Please Add cart Item</p>}
+      </div> : <p>Please Add Items to cart</p>}
 
     </div>
   )
