@@ -1,0 +1,13 @@
+.menu-items{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;  
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow: auto;
+  max-height: calc(100vh - 150px);
+  
+}
+
+ 
