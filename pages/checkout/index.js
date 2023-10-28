@@ -1,13 +1,21 @@
 import styles from '@/styles/Checkout.module.css'
-import Image from 'next/image'
+import CartItem from '@/components/CartItem/CartItem';
 import { useSession, signIn } from "next-auth/react";
-import Link from 'next/link';
+import AppButton from '@/components/AppButton/AppButton';
+import { useRouter } from 'next/router';
 
-export default function Checkout({ cart }) {
+export default function Checkout({ cart, handleCart }) {
   const { data: session } = useSession();
-  const userId = session?.user?.userId
+  const router = useRouter()
   const selectedItems = cart.map((item) => ({ itemId: item._id, qty: item.qty }))
-  let totalCartValue = cart.reduce((initialValue, item) => initialValue + (item.qty * item.price), 0)
+  const cartTotal = {
+    gross: 0,
+    taxes: 0,
+    net: 0
+  }
+  cartTotal.gross = cart.reduce((initialValue, item) => initialValue + (item.qty * item.price), 0)
+  cartTotal.taxes = (cartTotal.gross * 5 / 100).toFixed(2);
+  cartTotal.net = cartTotal.gross + parseFloat(cartTotal.taxes)
 
   async function handleConfirmOrder() {
     const response = await fetch("/api/orders", {
@@ -17,6 +25,11 @@ export default function Checkout({ cart }) {
       },
       body: JSON.stringify({ items: selectedItems }),
     });
+
+    if (response.status === 200) {
+      router.push('/confirmation')
+      handleCart([])
+    }
   }
   return (
     <div className={styles['checkout-page']}>
@@ -24,34 +37,34 @@ export default function Checkout({ cart }) {
       {cart.length > 0 ? <div className={styles['checkout-summaries']}>
         {cart.map((item) => {
           return (
-            <div className={styles['checkout-summaries__items']} key={item._id}>
-              <Image src={item.image} height='80' width='80' alt={item.name} className={styles['checkout-summaries__items--image']} />
-              <p className={styles['checkout-summaries__items--name']}>{item.name}</p>
-              <p className={styles['checkout-summaries__items--qty']}>Qty: {item.qty}</p>
-              <p className={styles['checkout-summaries__items--price']}>€{item.price}</p>
-              <p className={styles['checkout-summaries__items--total']}>€{item.qty * item.price}</p>
-            </div>
+            <CartItem item={item} key={item._id}></CartItem>
           )
         })}
         <div className={styles['addtional-info']}>
           <textarea rows='4' cols='50' className={styles['addtional-info--txt']} placeholder='Instructions' />
           <div className={styles['gross-amt']}>
-            <p className={styles['gross-amt__value']} >Gross:{totalCartValue} </p>
-            <p className={styles['gross-amt__tax']}>Tax@5%: {totalCartValue * 5 / 100} </p>
-            <p className={styles['gross-amt__total']}>Total: </p>
+            <p className={[styles['gross-amt--field'], styles['gross-amt__value']].join(' ')}>
+              <span>Gross:</span> <span>{cartTotal.gross}</span> </p>
+            <p className={[styles['gross-amt--field'], styles['gross-amt__tax']].join(' ')}><span>Tax@5%: </span> <span>{cartTotal.taxes}</span> </p>
+            <p className={[styles['gross-amt--field'], styles['gross-amt__total']].join(' ')}><span>Total: </span><span> {cartTotal.net} </span></p>
           </div>
         </div>
         <div className={styles['menu-order']}>
-          <Link href='./menu' className={styles['menu-order__button']}>Back to menu</Link>
+          <AppButton href='/menu' type='link' variant='secondary'>Back to menu</AppButton>
 
           {
             session ?
-              <button onClick={handleConfirmOrder} className={styles['menu-order__order-btn']}>Confirm Order</button>
+              <AppButton handleClick={handleConfirmOrder}>Confirm Order</AppButton>
               :
-              <button className={styles['signin-btn']} onClick={() => signIn()}>Log in</button>
+              <AppButton handleClick={() => signIn()}>Log in</AppButton>
           }
         </div>
-      </div> : <p>Please Add Items to cart</p>}
+      </div> :
+        <div className={styles['checkout-page__no-item']}>
+          <p>Please Add Items to cart</p>
+          <AppButton href='/menu' type='link' variant='animated'>To the Menu</AppButton>
+        </div>
+      }
 
     </div>
   )

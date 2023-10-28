@@ -1,6 +1,5 @@
+import MenuItems from '@/components/MenuItems/MenuItems'
 import styles from '@/styles/Menu.module.css'
-import { IconMinus, IconPlus } from '@tabler/icons-react'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import useSWR from "swr"
 
@@ -76,35 +75,7 @@ export default function Menu({ cart, handleCart }) {
   return (
     <div className={styles['menu-page']}>
       <h3 className={styles['menu-item--text']}>On menu today...</h3>
-      <div className={styles['menu-items']} >
-        {
-          menuItems.map((menu) => {
-            return (
-              <div className={styles['menu-item']} key={menu._id}>
-                <div className={styles['menu-item--img']}>
-                  <Image src={menu.image} height='150' width='150' alt={menu.name} />
-                </div>
-                <div className={styles['menu-item__details']}>
-                  <p className={styles['menu-item__details--name']}>{menu.name}</p>
-                  <p className={styles['menu-item__details--price']}>€{menu.price}</p>
-                </div>
-                <div className={styles['menu-item--button']}>
-                  {
-                    !menu.qty
-                      ?
-                      <button onClick={() => handelAddToCart(menu)} className={styles['btn-wrapper']}>Add</button>
-                      :
-                      <div className='qty-selector'>
-                        <button onClick={() => updateQty(menu, false)}><IconMinus /></button>
-                        <span>{menu.qty}</span>
-                        <button onClick={() => updateQty(menu, true)}><IconPlus /></button>
-                      </div>
-                  }
-                </div>
-              </div>
-            )
-          })}
-      </div>
+      <MenuItems menuItems={menuItems} updateQty={updateQty} handelAddToCart={handelAddToCart}></MenuItems>
     </div>
   )
 }       

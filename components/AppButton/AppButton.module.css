@@ -1,0 +1,35 @@
+.btn {
+  color: black;
+  font-family: kyiv-type-serif;  
+  word-wrap: break-word;
+  padding: 5px 15px;
+  background-color: white;
+  border: none;
+  min-width: 120px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #ddd;
+}
+
+.animated {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+  border: 0;
+  transition: all .2s ease-in-out;
+}
+
+.animated:hover {
+  background: linear-gradient(to bottom right, orange, #fff, green);
+  color: #1e1e63;
+}
+
+.transparent {
+  background: transparent;
+  color: #fff;
+  min-width: unset;
+}
