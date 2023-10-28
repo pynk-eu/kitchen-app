@@ -10,9 +10,16 @@ export default function Menu({ cart, handleCart }) {
 
   const [menuItems, setMenuItems] = useState([])
   useEffect(() => {
-    const list = data && data.map((d) => {
-      d.qty = 0;
-      return d;
+    const list = data && data.map((listItem) => {
+      const itemsAddedToCart = cart.filter((cartItem) => {
+        return cartItem._id === listItem._id
+      })
+      if (!itemsAddedToCart.length) {
+        listItem.qty = 0;
+      } else {
+        listItem.qty = itemsAddedToCart[0].qty;
+      }
+      return listItem;
     })
 
     setMenuItems(list || [])
@@ -36,18 +43,25 @@ export default function Menu({ cart, handleCart }) {
   }
 
   const updateQty = (menu, isIncrease) => {
-    let newQty = menu.qty;
+    let newQty;
     if (isIncrease) {
       newQty = menu.qty + 1
     } else {
       newQty = menu.qty - 1
     }
 
-    cart.forEach((c) => {
-      if (menu._id === c._id) {
-        c.qty = newQty
-      }
+    let matchedItemIdx = -1;
+    const itemInCart = cart.find((cartItem, idx) => {
+      matchedItemIdx = idx;
+      return cartItem._id === menu._id
     })
+
+    if (newQty < 1) {
+      cart.splice(matchedItemIdx, 1)
+    } else {
+      itemInCart.qty = newQty
+    }
+
     handleCart([...cart]);
 
     const updatedMenuItems = menuItems.map((m) => {
