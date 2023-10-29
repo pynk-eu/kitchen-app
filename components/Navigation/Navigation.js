@@ -12,9 +12,9 @@ export default function Navigation({ cart }) {
   return (
     <div className={styles['nav-bar']}>
       <div className={styles['nav-bar--logo']}>
-        <h3>My Kitchen</h3>
+        <Link href="./">My Kitchen</Link>
       </div>
-      <div className={styles['nav-bar__link']}> <Link href={"./"}>Home</Link>
+      <div className={styles['nav-bar__link']}>
         <Link href={"./menu"}>Menu</Link>
         <Link href="/checkout"><p>
           <IconShoppingCart />
